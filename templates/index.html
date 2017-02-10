@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/superbowl.css">
+    <link rel="stylesheet" type="text/css" href="../css/superbowl-list-view.css">
+    <title>toque de boulin</title>
+    <script type="text/javascript" src="../js/d3.v3.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/superbowl_base.js"></script>
+    <script type="text/javascript" src="../js/superbowl.js"></script>
+    <script type="text/javascript" src="../js/countdown.js"></script>   
+    <script type="text/plain" id="user-data">
+        {% autoescape false %}
+        {{userData}}
+        {% endautoescape %}
+    </script>
+</head>
+<body class="">
+<div class="header-container">
+    <div class="menu-container">
+        <ul class="menu">
+            <li class="box-view selected">grid</li>
+            <li class="spacer">|</li>
+            <li class="list-view">list</li>
+        </ul>
+        <h1 class="title">
+        toque de boulin
+        </h1>
+        <ul class="menu">
+            <li class="rules-button">rules</li>
+            <li class="spacer">|</li>
+            <li class="logout-button">logout</li>
+        </ul>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="countdown">
+</div>
+
+<p class="countdown">
+  apuesta directamente o lee reglas
+</p>
+
+<div class="square">
+</div>
+
+<div class="team-info">
+    <ul class="team team1">
+        <li class="logo-container">
+            <img class="logo" src="https://cdn.gomix.com/55dbb2a4-94d9-434f-9dcc-1432c975de1c%2Flogo_team1.png"/>
+        </li>
+        <li>
+            <p class="team-name x"> Halconess </p>
+            <p class="score"></p>
+        </li>
+    </ul>
+    <ul class="team team2">
+        <li class="logo-container">
+            <img class="logo" src="https://cdn.gomix.com/55dbb2a4-94d9-434f-9dcc-1432c975de1c%2Flogo_team2.png"/>
+        </li>
+        <div>
+            <p class="team-name y"> Patriotas </p>
+            <p class="score"></p>
+        </div>
+    </ul>
+</div>
+
+<div class="square-container">
+    <div class="box-info">
+        <ul class="info">
+            <div class="user-info-top">
+                <li class="user-photo removed">
+                    <img src=""/>
+                </li>
+                <li class="user-name removed"><p class="name"></p></li>
+            </div>
+        </ul>
+    </div>
+</div>
+
+<div class="user-picks-container hidden">
+</div>
+
+<div class="rules-and-payout-container">
+    <div class="rules-and-payout">
+        <div class="close">
+            <p>X</p>
+        </div>
+        <ul class="rules">
+            <li><h4>Reglas</h4></li>
+            <li>pincha casillas</li>
+            <li class="indent">a. puedes deseleccionar</li>
+            <li class="indent">b. el tiempo acaba cuando empiecen los boulins</li>
+            <li>las coordenadas son las últimas cifras del marcador </li>
+            <li>puede haber un vencedor por cuarto. participad hardy party!</li>
+        </ul>
+    </div>
+</div>
+<div class="disable-overlay"></div>
+
+<footer>
+  <p>
+    <a href="https://gomix.com/#!/remix/superbowl-squares/55dbb2a4-94d9-434f-9dcc-1432c975de1c">
+      <img src="https://gomix.com/images/background-light/remix-on-gomix.svg">
+    </a>
+  </p>
+  <p>
+    <a href="https://gomix.com/#!/project/superbowl-squares">
+      V3r codg
+    </a>
+  </p>
+</footer>
+
+</body>
+</html>

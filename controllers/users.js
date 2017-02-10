@@ -1,0 +1,77 @@
+/**
+ * Module dependencies.
+ */
+var User = require('../models/user.js')["User"];
+
+exports.addUser = function(userInfo, callback) {
+    userInfo.amountPaid = 0;
+    userInfo.amountOwed = 0;
+    userInfo.boxCount = 0;
+
+    var insertUser = function() {
+        User.create(userInfo, function (err, user) {
+            if (err) {
+                callback({err: err});
+            } else {
+                callback(user);
+            }
+        });
+    };
+
+    User.findOne({userId: userInfo.userId}, function(err, user) {
+        if (err) {
+            callback({err: "There was an error adding this user"});
+        } else {
+            insertUser();
+        }
+    });
+};
+
+/**
+ * Remove all users
+ */
+exports.removeAllUsers = function(callBack) {
+    User.remove({}, function(err, results) {
+        console.log(err ? err : results);
+        callBack(err ? {err: err} : {results: results});
+    });
+};
+
+/**
+ * Return all the users playing
+ * @param callback - function(docs) array of returned docs, will return empty list if none are found
+ */
+exports.getAllUsers = function(callback) {
+    User.find({}).exec(function(err, docs){
+        if (!err) {
+            var users = {};
+            for (var ii = 0; ii < docs.length; ii++) {
+                var aDoc = docs[ii];
+                users[aDoc.userId] = aDoc;
+            }
+            callback(users);
+        } else {
+            callback({err: "No users have been added" + err});
+        }
+    });
+};
+
+exports.userList = function(callback) {
+    User.find({}).exec(function(err, docs){
+        if (!err) {
+            var users = {};
+            for (var ii = 0; ii < docs.length; ii++) {
+                var aDoc = docs[ii];
+                users[aDoc.userId] = {
+                    name: aDoc.first_name + ' ' + aDoc.last_name,
+                    amountOwed: aDoc.amountOwed,
+                    amountPaid: aDoc.amountPaid,
+                    boxCount: aDoc.boxCount
+                };
+            }
+            callback(users);
+        } else {
+            callback({err: "No users have been added" + err});
+        }
+    });
+};

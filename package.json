@@ -1,0 +1,27 @@
+{
+	"name": "superbowl",
+	"description": "Super Bowl Squares",
+	"author": "jellenbogen <jonathanellenbogen@gmail.com",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+	    "express": "3.4.8",
+		  "consolidate": "0.9.x",
+	    "jade": "*",
+	    "passport": "*",
+		  "passport-twitter": "*",	    
+	    "mongoose": "*",
+	    "swig": "~1.3.2",
+	    "connect-mongo": "~0.4.0",
+	    "request": "~2.34.0",
+		  "underscore": "1.4.x",
+		  "forever": "0.10.x"
+	},
+	"engines": {
+    	"node": ">=0.6"
+  },
+  "main": "SuperBowlServer.js",
+  "scripts": {
+    "start": "node SuperBowlServer.js"
+  }
+}
